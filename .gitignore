@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Never commit secrets or cluster access files
+*.pem
+*.key
+.env
+kubeconfig
+*.kubeconfig
+
+# Build output / logs
+target/
+*.log

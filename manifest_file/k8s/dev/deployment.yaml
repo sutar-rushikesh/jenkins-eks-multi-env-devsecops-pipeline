@@ -1,0 +1,32 @@
+# Reference manifest (reconstructed). Replace with the original from the application repo if it differs.
+# metadata.namespace is intentionally omitted: the pipeline passes --namespace=dev to kubectl.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-app
+  labels:
+    app: spring-boot-app
+    env: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-app
+  template:
+    metadata:
+      labels:
+        app: spring-boot-app
+        env: dev
+    spec:
+      containers:
+        - name: spring-boot-app
+          image: rushikeshsutar/rushi:1
+          ports:
+            - containerPort: 8080   # assumption: Spring Boot default port
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
